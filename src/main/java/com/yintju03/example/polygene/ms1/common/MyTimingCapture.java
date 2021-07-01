@@ -13,7 +13,7 @@ public class MyTimingCapture extends GenericConcern {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         long start = System.currentTimeMillis();
         Object result = next.invoke(proxy, method, args);
-        logger.info("{}.{} takes {} ms", proxy.getClass().getSimpleName(), method.getName(), System.currentTimeMillis() - start);
+        logger.info("invoke, proxy = {}, method = {}, takes {} ms, result = {}", proxy, method.getName(), System.currentTimeMillis() - start, result);
         return result;
     }
     
